@@ -8,8 +8,6 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 
-
-
 #define RED_LED (1<<1)
 #define GREEN_LED (1<<2)
 #define MODE_TOGGLE 0
@@ -52,6 +50,9 @@ int main(void)
 		Pin1 - Green LED
 		Pin2 - Red LED
 	*/
+	CLKPR=0x80; CLKPR=0;		// Apparently this sets the fuses to not multiply the clock by 16 so we can get 16 MHz
+
+
 	sei();
 		
 	OCR1A = 195;
